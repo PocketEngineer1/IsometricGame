@@ -13,7 +13,6 @@ class Tile:
     
     def reload_image(self):
         self.image = pygame.image.load(self.image_path)
-
 class Engine:
     def __init__(self, width: int, height: int, title: str, background_color=(255, 255, 255)):
         pygame.init()
@@ -23,10 +22,10 @@ class Engine:
         self.background_color = background_color
         pygame.display.set_caption(title)
         self.clock = pygame.time.Clock()
-        self.vertical_offset = 320
-        self.horizontal_offset = 110
         self.tiles = []
         self.layers = []
+        self.camera_x = 115
+        self.camera_y = 320
     
     def create_layer(self, tile_coords):
         self.layers.append(tile_coords)
@@ -37,6 +36,15 @@ class Engine:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     running = False
+                elif event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_LEFT:
+                        self.move_camera(-1, 0)
+                    elif event.key == pygame.K_RIGHT:
+                        self.move_camera(1, 0)
+                    elif event.key == pygame.K_UP:
+                        self.move_camera(0, -1)
+                    elif event.key == pygame.K_DOWN:
+                        self.move_camera(0, 1)
             
             pygame.draw.rect(self.screen, self.background_color, pygame.Rect(0, 0, self.width, self.height))
 
@@ -52,8 +60,8 @@ class Engine:
                                 tile = l
                                 break
                         if tile is not None:
-                            screen_x = ((x - y) * tile_width / 2) + (self.width / 2) - (len(layer[0]) * tile_width / 4) + self.horizontal_offset
-                            screen_y = (((x + y) * tile_height / 2) - 12 * i) + self.vertical_offset
+                            screen_x = ((x - y) * tile_width / 2) + (self.width / 2) - (len(layer[0]) * tile_width / 4) + self.camera_x
+                            screen_y = (((x + y) * tile_height / 2) - 12 * i) + self.camera_y
                             self.screen.blit(tile.image, (screen_x, screen_y))
 
             pygame.display.flip()
@@ -64,6 +72,10 @@ class Engine:
             self.tiles.append(tile_object)
         else:
             print('ERROR: Duplicate tile')
+    
+    def move_camera(self, dx, dy):
+        self.camera_x += dx * self.tiles[0].width
+        self.camera_y += dy * self.tiles[0].height
 
 engine = Engine(600, 600, 'Isometric Game', background_color=(135, 206, 235))
 
