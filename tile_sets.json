@@ -1,0 +1,96 @@
+{
+    "base": [
+        {
+            "id": "block",
+            "name": "Block",
+            "width": 24,
+            "height": 12
+        }
+    ],
+    "mcblocks": [
+        {
+            "id": "dirt",
+            "name": "Dirt",
+            "width": 24,
+            "height": 12
+        },
+        {
+            "id": "grass",
+            "name": "Grass",
+            "width": 24,
+            "height": 12
+        },
+        {
+            "id": "stone",
+            "name": "Stone",
+            "width": 24,
+            "height": 12
+        },
+        {
+            "id": "bedrock",
+            "name": "Bedrock",
+            "width": 24,
+            "height": 12
+        },
+        {
+            "id": "oak_log",
+            "name": "Oak Log",
+            "width": 24,
+            "height": 12
+        },
+        {
+            "id": "oak_leaves",
+            "name": "Oak Leaves",
+            "width": 24,
+            "height": 12
+        },
+        {
+            "id": "cobble",
+            "name": "Cobble",
+            "width": 24,
+            "height": 12
+        },
+        {
+            "id": "glass",
+            "name": "Glass",
+            "width": 24,
+            "height": 12
+        },
+        {
+            "id": "obsidian",
+            "name": "Obsidian",
+            "width": 24,
+            "height": 12
+        },
+        {
+            "id": "gravel",
+            "name": "Gravel",
+            "width": 24,
+            "height": 12
+        },
+        {
+            "id": "sand",
+            "name": "Sand",
+            "width": 24,
+            "height": 12
+        },
+        {
+            "id": "red_sand",
+            "name": "Red Sand",
+            "width": 24,
+            "height": 12
+        },
+        {
+            "id": "mossy_cobble",
+            "name": "Mossy Cobble",
+            "width": 24,
+            "height": 12
+        },
+        {
+            "id": "brick_block",
+            "name": "Brick Block",
+            "width": 24,
+            "height": 12
+        }
+    ]
+}
